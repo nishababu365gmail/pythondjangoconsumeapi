@@ -1,0 +1,22 @@
+
+    {% extends 'snippetapp/base.html'%}
+    {% block body_content %}
+    <form method="post">
+        maaani babau vava
+        {{flower.isSingle}}
+        {% csrf_token %}
+        <div style="flex:row;flex-direction: column;">
+        <input type="text" name="flowername" value="{{flower.flowername}}" placeholder="Flower Name" />
+        <input type="text" name="flowercolor" placeholder="Color" value="{{flower.flowercolor}}"/>
+        <input type="radio" name="isSingle" value="1" 
+        
+        {% if flower.isSingle %} checked {%else%}  {% endif %}
+         />Single
+        <input type="radio" name="isSingle" value="0" 
+        {% if flower.isSingle %}  {%else%} checked {% endif %}/>Bunch
+        </div>
+        <div>
+        <input type="submit" value="Save flower" />
+    </div>
+    </form>
+{%endblock%}
